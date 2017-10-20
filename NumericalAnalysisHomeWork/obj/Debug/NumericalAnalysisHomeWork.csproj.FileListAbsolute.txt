@@ -1,0 +1,8 @@
+F:\C#_code\NumericalAnalysisHomeWork\NumericalAnalysisHomeWork\bin\Debug\NumericalAnalysisHomeWork.exe
+F:\C#_code\NumericalAnalysisHomeWork\NumericalAnalysisHomeWork\bin\Debug\NumericalAnalysisHomeWork.pdb
+F:\C#_code\NumericalAnalysisHomeWork\NumericalAnalysisHomeWork\obj\Debug\NumericalAnalysisHomeWork.csprojResolveAssemblyReference.cache
+F:\C#_code\NumericalAnalysisHomeWork\NumericalAnalysisHomeWork\obj\Debug\NumericalAnalysisHomeWork.MainForm.resources
+F:\C#_code\NumericalAnalysisHomeWork\NumericalAnalysisHomeWork\obj\Debug\NumericalAnalysisHomeWork.Properties.Resources.resources
+F:\C#_code\NumericalAnalysisHomeWork\NumericalAnalysisHomeWork\obj\Debug\NumericalAnalysisHomeWork.csproj.GenerateResource.Cache
+F:\C#_code\NumericalAnalysisHomeWork\NumericalAnalysisHomeWork\obj\Debug\NumericalAnalysisHomeWork.exe
+F:\C#_code\NumericalAnalysisHomeWork\NumericalAnalysisHomeWork\obj\Debug\NumericalAnalysisHomeWork.pdb
