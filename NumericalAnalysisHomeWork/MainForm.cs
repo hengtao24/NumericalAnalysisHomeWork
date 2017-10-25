@@ -13,7 +13,8 @@ namespace NumericalAnalysisHomeWork
     {   
         // 
         First first = new First();
-        Second Second = new Second();
+        Second second = new Second();
+        Third third = new Third();
 
         public MainForm()
         {
@@ -38,6 +39,10 @@ namespace NumericalAnalysisHomeWork
             {
                 ToleranceErrortextBox.Text = "" + 0.000001;
                 ToleranceErrortextBox2.Text = "" + 0.000001;
+            }
+            if (e.TabPage == tabPage3)
+            {
+                PrinitThirdResult();
             }
 
         }
@@ -70,14 +75,25 @@ namespace NumericalAnalysisHomeWork
         private void PrintNewtonResult()
         {
             string text = "";
-            text = "计算结果是：" + "x* = " + Second.Newton(Convert.ToDouble(InitialValueTextBox.Text), Convert.ToDouble(ToleranceErrortextBox.Text));
+            text = "计算结果是：" + "x* = " + second.Newton(Convert.ToDouble(InitialValueTextBox.Text), Convert.ToDouble(ToleranceErrortextBox.Text));
             richTextBox2.Text = text;
+        }
+
+        private void PrinitThirdResult()
+        {
+            double[,] arrray1 = new double[9, 9] { { 31, -13, 0, 0, 0, -10, 0, 0, 0 }, { -13, 35, -9, 0, -11, 0, 0, 0, 0 },{0, -9, 31, -10, 0, 0, 0, 0, 0},{0 ,0 ,-10, 79, -30, 0, 0, 0, -9},{0, 0, 0 ,-30, 57 ,-7 ,0, -5, 0},
+            {0 ,0 ,0, 0 ,-7, 47, -30 ,0, 0},{0, 0, 0 ,0 ,0, -30 ,41, 0 ,0},{0 ,0 ,0, 0, -5, 0, 0, 27, -2},{0 ,0 ,0 ,-9 ,0 ,0 ,0 ,-2, 29}};
+            double[] result = third.ColumnPrincipalGauss(arrray1, new double[] { -15, 27, -23, 0, -20, 12, -7, 7, 10 });
+            string text = "";
+            text = "方程组的解是：\n" + result[0] + "\n" + result[1] + "\n" + result[2] + "\n" + result[3] + "\n" + result[4] + "\n"
+                + result[5] + "\n" + result[6] + "\n" + result[7] + "\n" + result[8];
+            richTextBox3.Text = text;
         }
 
         private void PrintFindMaxSigmaResult()
         {
             string text = "";
-            text = "最大Sigma是：" + "sigma = " + Second.FindMaxSigma(Convert.ToDouble(StepLengthtextBox.Text), Convert.ToDouble(ToleranceErrortextBox2.Text));
+            text = "最大Sigma是：" + "sigma = " + second.FindMaxSigma(Convert.ToDouble(StepLengthtextBox.Text), Convert.ToDouble(ToleranceErrortextBox2.Text));
             richTextBox2.Text = text;
         }
 
