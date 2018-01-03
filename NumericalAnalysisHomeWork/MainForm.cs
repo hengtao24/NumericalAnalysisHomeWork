@@ -15,6 +15,8 @@ namespace NumericalAnalysisHomeWork
         First first = new First();
         Second second = new Second();
         Third third = new Third();
+        Fourth fourth = new Fourth();
+        Fifth fifth = new Fifth();
 
         public MainForm()
         {
@@ -27,7 +29,6 @@ namespace NumericalAnalysisHomeWork
             StartIterationbutton.Enabled = false;
             FindMaxSigmabutton.Enabled = false;
         }
-
 
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
@@ -42,9 +43,16 @@ namespace NumericalAnalysisHomeWork
             }
             if (e.TabPage == tabPage3)
             {
-                PrinitThirdResult();
+                PrintThirdResult();
             }
-
+            if (e.TabPage == tabPage4)
+            {
+                PrintFourthResult();
+            }
+            if (e.TabPage == tabPage5)
+            {
+                PrintFifthResult();
+            }
         }
 
         private void PrintFirstResult()
@@ -79,7 +87,7 @@ namespace NumericalAnalysisHomeWork
             richTextBox2.Text = text;
         }
 
-        private void PrinitThirdResult()
+        private void PrintThirdResult()
         {
             double[,] arrray1 = new double[9, 9] { { 31, -13, 0, 0, 0, -10, 0, 0, 0 }, { -13, 35, -9, 0, -11, 0, 0, 0, 0 },{0, -9, 31, -10, 0, 0, 0, 0, 0},{0 ,0 ,-10, 79, -30, 0, 0, 0, -9},{0, 0, 0 ,-30, 57 ,-7 ,0, -5, 0},
             {0 ,0 ,0, 0 ,-7, 47, -30 ,0, 0},{0, 0, 0 ,0 ,0, -30 ,41, 0 ,0},{0 ,0 ,0, 0, -5, 0, 0, 27, -2},{0 ,0 ,0 ,-9 ,0 ,0 ,0 ,-2, 29}};
@@ -88,6 +96,52 @@ namespace NumericalAnalysisHomeWork
             text = "方程组的解是：\n" + result[0] + "\n" + result[1] + "\n" + result[2] + "\n" + result[3] + "\n" + result[4] + "\n"
                 + result[5] + "\n" + result[6] + "\n" + result[7] + "\n" + result[8];
             richTextBox3.Text = text;
+        }
+
+        private void PrintFourthResult()
+        {
+            richTextBox4.Text = "";
+            double[] x = new double[] {0,1,2,3,4,5,6,7,8,9,10 };
+            double[] y = new double[] { 2.51,3.30,4.04,4.70,5.22,5.54,5.78,5.40,5.57,5.70,5.80};
+            double y_0 = 0.8;
+            double y_n = 0.2;
+            double[] M = fourth.CalculateSx(x, y, y_0, y_n);
+            double r;
+            int len = x.Length;
+            richTextBox4.Text += "S(x)的结果如下:";
+            richTextBox4.Text += "\r";
+		    for(int i=0;i<len-1;i++)
+		    {
+		    	r=(y[i+1]-y[i])/(x[i+1]-x[i])-(M[i]*(1.0/3)+M[i+1]*(1.0/6))*(x[i+1]-x[i]);
+		    	string text = "在区间（"+x[i]+","+x[i+1]+"内)：S(x)="+y[i]+"+("+r+")*(x-"+x[i]+")+("+0.5*M[i]+")*(x-"+x[i]+")^2+("+1/(6*(x[i+1]-x[i]))*(M[i+1]-M[i])+")*(x-"+x[i]+")^3";
+                richTextBox4.Text += text;
+                richTextBox4.Text += "\r";
+		    }
+            richTextBox4.Text += "S(i+0.5)的结果如下:";
+            richTextBox4.Text += "\r";
+		    double []S=new double [len];
+		    for(int i=0;i<len-1;i++)
+		    {
+		    	r=(y[i+1]-y[i])/(x[i+1]-x[i])-(M[i]/3+M[i+1]/6)*(x[i+1]-x[i]);
+		    	S[i]=y[i]+r*0.5+0.5*M[i]*(0.5)*(0.5)+1/(6*(x[i+1]-x[i]))*(M[i+1]-M[i])*0.5*0.5*0.5;
+                string text = "S["+(i+0.5)+"]="+S[i];
+                richTextBox4.Text += text;
+                richTextBox4.Text += "\r";
+		    }
+
+        }
+
+        private void PrintFifthResult() 
+        {
+            richTextBox5.Text = "";
+            double a = 0;
+            double b = Math.PI / 3;
+            double c = 0;
+            double d = Math.PI / 6;
+
+            double ToleranceError = 5E-6;
+
+
         }
 
         private void PrintFindMaxSigmaResult()
@@ -138,7 +192,6 @@ namespace NumericalAnalysisHomeWork
                 FindMaxSigmabutton.Enabled = true;
             }
         }
-
-        
+       
     }
 }

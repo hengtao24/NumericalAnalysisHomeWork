@@ -44,7 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fifth.cs" />
     <Compile Include="First.cs" />
+    <Compile Include="Fourth.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
