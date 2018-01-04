@@ -21,7 +21,7 @@ namespace NumericalAnalysisHomeWork
             return result;
         }
 
-        public double CalculateResult(double a, double b, double c, double d, double ToleranceError)
+        public String CalculateResult(double a, double b, double c, double d, double ToleranceError)
         {
             double h, k;    // 步长
             h = b - a;
@@ -41,8 +41,6 @@ namespace NumericalAnalysisHomeWork
             int index = 0;
             while ((Math.Abs(Tf-Tfnew)>ToleranceError) && m < 10000)
             {
-                n = n * 2;
-                m = m * 2;
                 h = (b - a) / m;
                 k = (d - c) / n;
                 Tf = Tfnew;
@@ -65,6 +63,8 @@ namespace NumericalAnalysisHomeWork
                 Tfnew = Tf / 4 + temp;
                 T0[index] = Tfnew;
                 index++;
+                n = n * 2;
+                m = m * 2;
             }
 
             // 计算更高阶精度数值
@@ -81,7 +81,28 @@ namespace NumericalAnalysisHomeWork
                 T3[i] = 64.0 / 63 * (T2[i + 1]) - 1.0 / 63 * (T2[i]);
             }
 
-            return c;
+            String result = "";
+            result = "T0:\r";
+            for(int i=0;i<index;i++)
+			{
+               result += T0[i] + "\r";
+			}
+            result += "T1:\r";
+            for (int i = 0; i < index-1; i++)
+            {
+                result += T1[i] + "\r";
+            }
+            result += "T2:\r";
+            for (int i = 0; i < index-2; i++)
+            {
+                result += T2[i] + "\r";
+            }
+            result += "T3:\r";
+            for (int i = 0; i < index-3; i++)
+            {
+                result += T3[i] + "\r";
+            }
+            return result;
         }
 
     }

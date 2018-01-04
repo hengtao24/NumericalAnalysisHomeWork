@@ -141,6 +141,7 @@ namespace NumericalAnalysisHomeWork
 
             double ToleranceError = 5E-6;
 
+            richTextBox5.Text = fifth.CalculateResult(a, b, c, d, ToleranceError);
 
         }
 
