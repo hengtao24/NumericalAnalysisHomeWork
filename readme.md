@@ -1,7 +1,7 @@
 # 东南大学数值分析上机题
 数值分析第三版 东南大出版社
 
-**注：一共五道题，具体见word报告。**
+**注：一共五道题， `[具体见word报告](NumericalAnalysisHomeWork/ReportDocument)`。
 
 * P20 17题
 * P56 20题
